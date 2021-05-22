@@ -5,7 +5,7 @@ Uso da linguagem R e Aplicações em Inteligência Artificial.
 
 ## Conteúdo
 1. [Aula 1 - Operações, Vetores e Matrizes](#aula1)
-2. [Aula 2 - ](#aula2)
+2. [Aula 2 - Listas, DataFrames](#aula2)
 3. [Aula 3 - ](#aula3)
 
 ## Aula 1 - Operações, Vetores e Matrizes <a name="aula1"></a>
@@ -350,3 +350,118 @@ Crie o data frame anterior e execute os comandos, vendo os resultados
 * Dê a média dos pesos (mean);
 * Mostrar as pessoas do sexo feminino que estão na base;
 * Contar as pessoas do sexo feminino (nrow).
+
+### Arquivos
+#### Exercício 1
+Execute os exercícios apresentados nos slides.
+#### Exercício 2
+Carregue o arquivo http://www.razer.net.br/datasets/Biomassa_REG.csv
+
+#### Exercício 3
+Carregue o arquivo http://www.razer.net.br/datasets/fertility.csv
+
+#### Exercício 4
+Salve a base de dados IRIS (data frame iris) usando os seguintes formatos:
+a. Separador "**", ponto decimal ".", sem os nomes das linhas e o cabeçalho de colunas, com aspas nos campos string;
+
+b. CSV com ponto decimal ",", sem os nomes das linhas, com o cabeçalho de colunas e sem aspas nos campos string.
+
+### Programação
+#### Exercício 1
+Escreva um laço que varre os números de 1 a 7 e imprime seus quadrados, usando o comando print().
+* Usando laços, varra uma lista de números aleatórios gerados por rnorm(), mas pare se o número encontrado for mais que 1.
+* Usando laços, varra uma lista de números aleatórios gerados por rnorm(), mas use o comando next para pular os números negativos;
+* Use laços aninhados para criar a matriz abaixo. Faça a alocação prévia da matriz com valores NA.
+  
+0 1 2 3 4
+1 0 1 2 3
+2 1 0 1 2
+3 2 1 0 1
+4 3 2 1 0
+
+#### Exercício 2
+Crie o seguinte data frame:
+```
+student.df <- data.frame( name = c("Sue", "Eva", "Henry", "Jan"),
+
+sex = c("f", "f", "m", "m"),
+years = c(21,31,29,19));
+```
+
+Usando um comando ifelse(), crie uma coluna chamada teen, booleana, que indica se a pessoa possui menos de 20 anos.
+
+#### Exercício 3
+Crie o seguinte data frame:
+
+```r
+a = c(3,7,NA, 9)
+b = c(2,NA,9,3)
+f = c(5,2,5,6)
+d = c(NA,3,4,NA)
+mydf = data.frame(a=a,b=b,f=f,d=d)
+```
+
+Adicione uma quinta coluna usando as seguintes regras:
+
+1. A 5a coluna tem o valor da coluna 2 se a coluna 1 é NA
+2. A 5a coluna tem o valor da coluna 4 se a coluna 2 é NA
+3. A 5a coluna contém o valor da coluna 3 em qualquer outro caso
+
+O resultado deve ser:
+
+a b f d V5
+1 3 2 5 NA 5
+2 7 NA 2 3 3
+3 NA 9 5 4 9
+4 9 3 6 NA 6
+
+#### Exercício 4
+Crie uma matriz com 10 colunas contendo 100.000 números, sendo os números de 1:100000. Faça um laço for que calcula a soma de cada linha desta matriz.
+
+*Crie o seguinte data frame:
+```r
+vector1 <- 1:10
+vector2 <- c("Odd", "Loop", letters[1:8])
+vector3 <- rnorm(10, sd = 10)
+df1 <- data.frame(vector1, vector2, vector3, stringsAsFactors = FALSE)
+```
+
+* Faça um laço genérico sobre as colunas deste data frame efetuando o seguinte cálculo:
+  * Se a coluna for numérica, calcula sua média
+  * Se a coluna for de texto calcula a soma dos caracteres na coluna (nchar())
+
+#### Exercício 5
+Crie um script R (chamado funcoes.R) e escreva nele as seguinte funções:
+* Para calcular o quadrado de um número;
+* Para receber duas matrizes e retornar a multiplicação;
+* Para receber um data frame contendo uma coluna nome e uma coluna idade, e retornar a média das idades;
+* Para receber um data frame contendo uma coluna nome e uma coluna idade, e retornar;
+uma lista com dois dados, o nome e a idade, da pessoa que contém a maior idade;
+* Carregue o script no R e execute as funções.
+
+
+### Funções Apply
+#### Exercício 1
+Execute os exercícios apresentados nos slides
+
+#### Exercício 2
+Crie uma matriz com 10 colunas contendo 100.000 números, sendo os números de 1:100000.
+* Execute um comando apply que calcula a soma de cada linha desta matriz.
+* Execute um comando apply que calcula a média de cada coluna desta matriz.
+
+#### Exercício 3
+Crie o seguinte data frame:
+
+```r
+> idade <- c(56, 34, 67, 33, 25, 28)
+> peso <- c(78, 67, 56, 44, 56, 89)
+> altura <- c(165, 171, 167, 167, 166, 181)
+> dados <- data.frame(idade, peso, altura)
+```
+
+* Dê as seguintes respostas;
+* A média de todas as colunas (usando apply);
+* O valor máximo de todas as colunas (usando apply);
+* A raiz quadrada de todos os valores do data frame, como uma matriz;
+* A raiz quadrada de todos os valores do data frame, como uma lista;
+* Todos os valores do data frame multiplicados por 20, como uma matriz (usando uma UDF).
