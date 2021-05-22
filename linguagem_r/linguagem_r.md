@@ -3,7 +3,13 @@
 
 Uso da linguagem R e Aplicações em Inteligência Artificial.
 
-## Aula 1
+## Conteúdo
+1. [Aula 1 - Operações, Vetores e Matrizes](#aula1)
+2. [Aula 2 - ](#aula2)
+3. [Aula 3 - ](#aula3)
+
+## Aula 1 - Operações, Vetores e Matrizes <a name="aula1"></a>
+[Aula 1 - Exercícios em arquivo .R](linguagem_r/linguagem_r_aula1.R)
 ### Básico - Operações
 #### Exercício 1
 Rode o console do R e efetue as seguintes operações:
@@ -18,7 +24,7 @@ Rode o console do R e efetue as seguintes operações:
   2.5
   ```
 
-* 7 / 2 + 8 * (5 – 3)
+* **7 / 2 + 8 . (5 – 3)**
   ```r
   y <- 7/2+8 * (5-3)
   y
@@ -224,3 +230,123 @@ Estocolmo   3927  3188  1827         0
 ```
 
 ### Fatores e Fórmulas
+
+## Aula 2 - Listas, DataFrames <a name="aula2"></a>
+[Aula 2 - Exercícios em arquivo .R](linguagem_r/linguagem_r_aula2.R)
+### Listas
+Exemplo
+```r
+x <- list(1:5, "Z", TRUE, c("a", "b"))
+x
+```
+#### Exercício 1
+Sejam os seguintes três vetores
+
+```r
+v1 <- c(2005:2016)
+v2 <- c(1:12)
+v3 <- c(1:31)
+```
+Defina uma lista chamada datas que, ao ser impressa, seja:
+
+```
+$anos
+[1] 2005 2006 2007 2008 2009 2010 2011 2012 2013 2014 2015 2016
+
+$meses
+[1] 1 2 3 4 5 6 7 8 9 10 11 12
+
+$dias
+[1] 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23
+24 25 26 27 28 29 30 31
+``` 
+
+#### Exercício 2
+Sejam o seguinte vetor:
+
+```r
+v <- c(1,3,4,7,11,18,29)
+```
+
+Crie uma lista com os dados x*2, x/2 e sqrt(x)
+```r
+$`x*2`
+```
+[1] 2 6 8 14 22 36 58
+
+```r
+$`x/2`
+```
+[1] 0.5 1.5 2.0 3.5 5.5 9.0 14.5
+
+```r
+$`sqrt(x)`
+```
+[1] 1.000000 1.732051 2.000000 2.645751 3.316625 4.242641 5.385165
+
+#### Exercício 3
+Dada lista anterior, apresente o seguinte vetor
+
+```r
+2.000000 2.645751 3.316625
+```
+
+Procure a posição dos dados no vetor e acesse-os. Não é necessário buscar pelos números decimais.
+
+### DataFrames
+#### Exercício 1
+Crie o seguinte Data Frame
+
+```r
+df <- data.frame(letras=letters[1:10], numeros=21:30, valores=rnorm(10))
+```
+
+Faça as seguintes pesquisas:
+
+a) Retorne a linha 5;
+
+b) Retorna a coluna 2 (como vetor e como data frame – drop=FALSE);
+
+c) Retorne as colunas 2 e 3;
+
+d) Retorne os elementos da linha 6, mas somente as colunas 1 e 3;
+
+e) Retorne os elementos que possuem na coluna "valores" um valor maior que zero;
+
+f) Retorne os elementos que possuem na coluna "numeros" um valor ímpar;
+
+g) Retorne os elementos que possuem na coluna "valores" um valor maior que zero e na coluna "numeros" um valor par;
+
+h) Retorne os elementos que possuem na coluna "letras" somente os seguintes valores "b", "g", "h".
+
+#### Exercício 2
+Criar os data frames df1 e cidades
+
+```r
+df1 <- data.frame(nome=c("Razer", "Anthom", "Nizer", "Rojas", "Montaño"),
+cidadeId=c(3, 10, 2, 3, 1))
+
+cidades <- data.frame(cidadeId=c(1, 2, 3, 4), cidade=c("Curitiba", "SJP",
+"Pinhais", "Colombo"))
+```
+
+Executar os merges apresentados:
+
+a) Cross Join
+
+b) Inner Join
+
+c) Outer Join
+
+d) Left Outer Join
+
+e) Right Outer Join
+
+#### Exercício 3
+Crie o data frame anterior e execute os comandos, vendo os resultados
+* Ordene o data frame por peso;
+* Ordene o data frame por sexo e peso, decrescentemente;
+* Dê a maior idade nos dados (max);
+* Dê a média dos pesos (mean);
+* Mostrar as pessoas do sexo feminino que estão na base;
+* Contar as pessoas do sexo feminino (nrow).
