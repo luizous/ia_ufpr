@@ -6,7 +6,7 @@ Uso da linguagem R e Aplicações em Inteligência Artificial.
 ## Conteúdo
 1. [Aula 1 - Operações, Vetores e Matrizes](#aula1)
 2. [Aula 2 - Listas, DataFrames](#aula2)
-3. [Aula 3 - ](#aula3)
+3. [Aula 3 - Estatística Básica, Gráficos, Regressão, Classificação e Salvando & Finalizando o Modelo](#aula3)
 
 ## Aula 1 - Operações, Vetores e Matrizes <a name="aula1"></a>
 [Aula 1 - Exercícios em arquivo .R](linguagem_r/linguagem_r_aula1.R)
@@ -465,3 +465,148 @@ Crie o seguinte data frame:
 * A raiz quadrada de todos os valores do data frame, como uma matriz;
 * A raiz quadrada de todos os valores do data frame, como uma lista;
 * Todos os valores do data frame multiplicados por 20, como uma matriz (usando uma UDF).
+  
+## Aula 3 - Estatística Básica, Gráficos, Regressão, Classificação e Salvando & Finalizando o Modelo <a name="aula3"></a>
+### Gráficos
+#### Exercício 
+Execute os exercícios apresentados nos slides.
+```r
+### gráficos
+dados <- c(38, 15, 43, 85, 36, 15, 96, 35, 20, 29, 76, 39, 18,
+           14, 37, 39, 68, 63, 96, 86, 45, 89, 94, 60, 73, 60, 59, 73, 52, 32)
+interv <- seq(0,100,25)
+classes <- c("0-24", "25-49", "50-74", "75-100")
+t <- table(cut(dados, breaks=interv, right=FALSE,
+                 labels=classes))
+plot(t, xlab="Classe", ylab="Frequência")
+
+### histograma
+lista <- rnorm(100)
+hist(lista)
+
+dados <- c(38, 15, 43, 85, 36, 15, 96, 35, 20, 29, 76, 39,
+           18, 14, 37, 39, 68, 63, 96, 86, 45, 89, 94, 60, 73, 60, 59, 73,
+           52, 32)
+hist(dados, xlab="Valores", ylab="Frequência", main="Meu
+Histograma")
+
+### gráfico de dispersão
+x <- rnorm(100)
+y <- rnorm(100)
+plot(x, y)
+
+n_dados <- 100
+v_temp <- sample(0:45, n_dados, replace=T)
+v_altitude <- sample(0:1200, n_dados, replace=T)
+df <- data.frame(temperatura=v_temp,
+                   altitude=v_altitude)
+plot(df$altitude, df$temperatura)
+
+### gráfico de linhas
+x <- 1:20
+y <- rnorm(20)
+plot(x, y, type="l")
+
+n_dados <- 100
+v_temp <- sample(0:45, n_dados, replace=T)
+v_obs <- 1:n_dados
+df <- data.frame(observacao=v_obs, temperatura=v_temp)
+plot(df$observacao, df$temperatura, type="l")
+
+### com linha média
+plot(df$observacao, df$temperatura, type="l")
+abline(h=mean(df$temperatura), col="red")
+
+### gráfico de linhas 
+grupoA <- rep("Grupo A", 30)
+grupoB <- rep("Grupo B", 20)
+grupoC <- rep("Grupo C", 9)
+grupos <- c(grupoA, grupoB, grupoC)
+grupos <- table(grupos)
+plot(grupos)
+
+### gráfico de barras
+n_dados <- 100
+v_temp <- sample(0:45, n_dados, replace=T)
+v_obs <- 1:n_dados
+df <- data.frame(observacao=o_obs, temperatura=v_temp)
+barplot(df$temperatura)
+```
+
+#### Exercício 2
+Gere os gráficos em arquivos PDF e PNG.
+[...]
+
+### Regressão
+#### Exercício 1 
+Efetuar a análise de regressão para os seguintes dados. Mostre as estatísticas, equação de reta e plote o gráficos de dispersão com a reta, e os gráficos de resíduos.
+
+| Variável Independente (x) | Variável Dependente (y)  |
+|---------------------------|--------------------------|
+| 6.5 | 1.4 |
+| 5.8 | 1.5 |
+| 7.8 | 1.7 |
+| 8.1 | 1.9 |
+| 10.4 | 2.1 |
+| 12.3 | 2.2 |
+| 13.1 | 2.4 |
+| 17.4 | 3.2 |
+| 20.1 | 3.7 |
+| 24.5 | 4.2 |
+| 25.5 | 4.8 |
+| 27.1 | 5.2 | 
+
+```r
+x <- c(6.5,5.8,7.8,8.1,10.4,12.3,13.1,17.4,20.1,24.5,25.5,27.1)
+y <- c(1.4,1.5,1.7,1.9,2.1,2.2,2.4,3.2,3.7,4.2,4.8,5.2)
+
+# gráfico de disperção com reta
+df <- data.frame(x, y)
+plot(df$x, df$y)
+abline(h=mean(df$y), col="red")
+
+# gráfico de resíduos
+modelo <- lm(y ~ x)
+plot(resid(modelo))
+```
+
+#### Exercício 2
+Efetuar a análise de regressão para os dados do arquivo GAGurine.csv que está no Moodle. Mostre as estatísticas, equação de reta e plote o gráficos de dispersão com a reta, e os gráficos de resíduos
+
+Este arquivo contém a medição de níveis de GAG (glicosaminoglicanos) na urina de crianças de certa idade
+http://www.razer.net.br/datasets/GAGurine.csv
+
+### Regressão Polinomial
+#### Exercício 1
+* Para os dados CoolingWater, gere as estimativas com um polinômio de grau 3 e de grau 4. Compare as curvas de predição.
+
+* Use a base cars do R
+  * Gere modelos polinomiais de graus 2, 3, 4 e 5;
+  * Faça as predições com cada modelo;
+  * Plote os pontos dos dados;
+  * Plote as linhas de cada uma das predições efetuadas, em cores     diferentes.
+
+* Gerar os PDFs dos gráficos com as predições de grau 2, 3 e 4, para o problema CoolingWater, usando scripts R.
+
+### Classificação
+#### Exercício 1
+Efetuar o exercício de classificação apresentado, usando a base IRIS.
+
+a) Apresente os resultados dos modelos;
+
+b) Apresente o modelo que deu o melhor resultado.
+
+#### Exercício 2
+Efetuar o exercício de classificação apresentado, usando a base Câncer de Mama.
+
+a) Apresente os resultados dos modelos;
+
+b) Apresente o modelo que deu o melhor resultado.
+
+### Salvando e Finalizando o Modelo
+#### Exercício
+Sobe os exercícios da base Iris e Câncer de Mama.
+
+a) Salve os modelos de gerados;
+
+b) Em um script, carregue os modelos e execute uma predição com cada.
