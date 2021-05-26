@@ -5,7 +5,7 @@ Uso da linguagem R e Aplicações em Inteligência Artificial.
 
 ## Conteúdo
 1. [Aula 1 - Operações, Vetores e Matrizes](#aula1)
-2. [Aula 2 - Listas, DataFrames](#aula2)
+2. [Aula 2 - Listas, DataFrames, Arquivos](#aula2)
 3. [Aula 3 - Estatística Básica, Gráficos, Regressão, Classificação e Salvando & Finalizando o Modelo](#aula3)
 
 ## Aula 1 - Operações, Vetores e Matrizes <a name="aula1"></a>
@@ -120,7 +120,7 @@ Biomassa 2:  21991.15
 
 
 ### Vetores
-#### Exercício 1
+#### Exercício 1 ❌
 Execute os exemplos apresentados nos slides
 
 #### Exercício 2
@@ -187,7 +187,7 @@ Light Consumption Creasing:  9839 10149 10486 10746 11264 11684 12082 12599 1300
 ```
 
 ### Matrizes
-#### Exercício 1
+#### Exercício 1 ❌
 Execute os exemplos apresentados nos slides
 
 #### Exercício 2
@@ -231,7 +231,7 @@ Estocolmo   3927  3188  1827         0
 
 ### Fatores e Fórmulas
 
-## Aula 2 - Listas, DataFrames <a name="aula2"></a>
+## Aula 2 - Listas, DataFrames, Arquivos, Programação <a name="aula2"></a>
 [Aula 2 - Exercícios em arquivo .R](linguagem_r/linguagem_r_aula2.R)
 ### Listas
 Exemplo
@@ -381,7 +381,7 @@ Escreva um laço que varre os números de 1 a 7 e imprime seus quadrados, usando
 
 #### Exercício 2
 Crie o seguinte data frame:
-```
+```r
 student.df <- data.frame( name = c("Sue", "Eva", "Henry", "Jan"),
 
 sex = c("f", "f", "m", "m"),
@@ -430,7 +430,7 @@ df1 <- data.frame(vector1, vector2, vector3, stringsAsFactors = FALSE)
   * Se a coluna for numérica, calcula sua média
   * Se a coluna for de texto calcula a soma dos caracteres na coluna (nchar())
 
-#### Exercício 5
+#### Exercício 5 ❌
 Crie um script R (chamado funcoes.R) e escreva nele as seguinte funções:
 * Para calcular o quadrado de um número;
 * Para receber duas matrizes e retornar a multiplicação;
@@ -441,15 +441,19 @@ uma lista com dois dados, o nome e a idade, da pessoa que contém a maior idade;
 
 
 ### Funções Apply
-#### Exercício 1
+#### Exercício 1 ❌
 Execute os exercícios apresentados nos slides
 
-#### Exercício 2
+[...]
+
+#### Exercício 2 ❌
 Crie uma matriz com 10 colunas contendo 100.000 números, sendo os números de 1:100000.
 * Execute um comando apply que calcula a soma de cada linha desta matriz.
 * Execute um comando apply que calcula a média de cada coluna desta matriz.
 
-#### Exercício 3
+[...]
+
+#### Exercício 3 ❌
 Crie o seguinte data frame:
 
 ```r
@@ -465,10 +469,12 @@ Crie o seguinte data frame:
 * A raiz quadrada de todos os valores do data frame, como uma matriz;
 * A raiz quadrada de todos os valores do data frame, como uma lista;
 * Todos os valores do data frame multiplicados por 20, como uma matriz (usando uma UDF).
+
+[...]
   
 ## Aula 3 - Estatística Básica, Gráficos, Regressão, Classificação e Salvando & Finalizando o Modelo <a name="aula3"></a>
 ### Gráficos
-#### Exercício 
+#### Exercício 1
 Execute os exercícios apresentados nos slides.
 ```r
 ### gráficos
@@ -533,12 +539,12 @@ df <- data.frame(observacao=o_obs, temperatura=v_temp)
 barplot(df$temperatura)
 ```
 
-#### Exercício 2
+#### Exercício 2 ❌
 Gere os gráficos em arquivos PDF e PNG.
 [...]
 
 ### Regressão
-#### Exercício 1 
+#### Exercício 1
 Efetuar a análise de regressão para os seguintes dados. Mostre as estatísticas, equação de reta e plote o gráficos de dispersão com a reta, e os gráficos de resíduos.
 
 | Variável Independente (x) | Variável Dependente (y)  |
@@ -570,14 +576,16 @@ modelo <- lm(y ~ x)
 plot(resid(modelo))
 ```
 
-#### Exercício 2
+#### Exercício 2 ❌
 Efetuar a análise de regressão para os dados do arquivo GAGurine.csv que está no Moodle. Mostre as estatísticas, equação de reta e plote o gráficos de dispersão com a reta, e os gráficos de resíduos
 
 Este arquivo contém a medição de níveis de GAG (glicosaminoglicanos) na urina de crianças de certa idade
 http://www.razer.net.br/datasets/GAGurine.csv
 
+[...]
+
 ### Regressão Polinomial
-#### Exercício 1
+#### Exercício 1 ❌
 * Para os dados CoolingWater, gere as estimativas com um polinômio de grau 3 e de grau 4. Compare as curvas de predição.
 
 * Use a base cars do R
@@ -588,25 +596,33 @@ http://www.razer.net.br/datasets/GAGurine.csv
 
 * Gerar os PDFs dos gráficos com as predições de grau 2, 3 e 4, para o problema CoolingWater, usando scripts R.
 
+[...]
+
 ### Classificação
-#### Exercício 1
+#### Exercício 1  ❌
 Efetuar o exercício de classificação apresentado, usando a base IRIS.
 
 a) Apresente os resultados dos modelos;
 
 b) Apresente o modelo que deu o melhor resultado.
 
-#### Exercício 2
+[...]
+
+#### Exercício 2 ❌
 Efetuar o exercício de classificação apresentado, usando a base Câncer de Mama.
 
 a) Apresente os resultados dos modelos;
 
 b) Apresente o modelo que deu o melhor resultado.
 
+[...]
+
 ### Salvando e Finalizando o Modelo
-#### Exercício
+#### Exercício ❌
 Sobe os exercícios da base Iris e Câncer de Mama.
 
 a) Salve os modelos de gerados;
 
 b) Em um script, carregue os modelos e execute uma predição com cada.
+
+[...]
