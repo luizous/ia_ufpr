@@ -1,6 +1,6 @@
 ### ----------------------------------------------------------------------------
 ###
-### UNIVERSIDADE FEDERAL DO PARAN??
+### UNIVERSIDADE FEDERAL DO PARANA
 ### Especializacao em Inteligencia Artificial Aplicada
 ### IAA004 - Linguagem R
 ### Luiza Ruivo Marinho
@@ -11,59 +11,62 @@
 ### 1 - Pesquisa com Dados de Satelite (Satellite)
 ###
 
-## Instalar o pacote do modelo de trainamento RamdomForest
+# Instalar o pacote do modelo de trainamento RandomForest:
 install.packages("randomForest")
 library(randomForest)
 
-## Instalar o pacote mlbench para obter o banco de dados
+# Instalar o pacote mlbench para obter o banco de dados:
 install.packages("mlbench")
 library(mlbench)
 
-## Instalar pacote caret para usar a funcao createDataPartition()
+# Instalar pacote caret para usar a funcao createDataPartition():
 install.packages("caret")
 library("caret")
 
-## Instalar o pacote e1071 para o treinamento dos modelos
+# Instalar o pacote e1071 para o treinamento dos modelos:
 install.packages("e1071")
 library("e1071")
 
-## Carregqr o dataset com o banco de dados Satellite
+# Carregar o dataset com o banco de dados Satellite:
 data(Satellite)
 dataset <- Satellite
 
-## Criar bases de treino e teste
-## Particiona a bases em treino (80%) e teste (20%)
-indices <- createDataPartition(dataset$classes, p=0.80,
+# Criar bases de treino e teste e particionar a bases em treino (80%) e teste (20%):
+indexes <- createDataPartition(dataset$classes, p=0.80,
                                list=FALSE)
-treino <- dataset[indices,]
-teste <- dataset[-indices,]
+training <- dataset[indexes,]
+test <- dataset[-indexes,]
 
-## Treinar com as bases de treino
+## Treinar com as bases de treino:
 set.seed(0)
 
-rf <- train(classes~., data=treino, method="rf") # RamdomForest
-svm <- train(classes~., data=treino, method="svmRadial") # SVM
-rna <- train(classes~., data=treino, method="nnet",
-               trace=FALSE) # RNA
+rf <- train(classes~., data=training, method="rf") # RamdomForest
+svm <- train(classes~., data=training, method="svmRadial") # SVM
+rna <- train(classes~., data=training, method="nnet", trace=FALSE) # RNA
 
-## Aplicar modelos treinados na base de teste
-predict.rf <- predict(rf, teste)
-predict.svm <- predict(svm, teste)
-predict.rna <- predict(rna, teste)
+## Aplicar modelos treinados na base de teste:
+predict.rf <- predict(rf, test)
+predict.svm <- predict(svm, test)
+predict.rna <- predict(rna, test)
 
-## Verificar a quantidade de amostras de cada classe na base de teste
-table(teste$classes)
-# resultado:
-#
-# red soil         cotton crop       grey soil      damp grey soil    vegetation stubble 
-# 306              140               271            125               141 
-#
-# very damp grey soil 
-# 301 
+## Verificar a quantidade de amostras de cada classe na base de teste:
+frequency <- table(dataset$classes)
+frequency_rel <- prop.table(frequency)
+data.frame('Classe'= names(frequency),
+           'Frequência'= as.vector(frequency),
+           'Relativa'= as.vector(frequency_rel),
+           'Porcentagem'= as.vector(frequency_rel) * 100)
+#                Classe    Frequência     Relativa    Porcentagem
+# 1            red soil       1533        0.2382284    23.82284
+# 2         cotton crop        703        0.1092463    10.92463
+# 3           grey soil       1358        0.2110334    21.10334
+# 4      damp grey soil        626        0.0972805     9.72805
+# 5  vegetation stubble        707        0.1098679    10.98679
+# 6 very damp grey soil       1508        0.2343434    23.43434
 
 
 ## Criar as matrizes de confusao e comparar os resultados
-confusionMatrix(predict.rf, teste$classes)  # Accuracy: 0.9245
+confusionMatrix(predict.rf, test$classes)  # Accuracy: 0.9245
 # Confusion Matrix and Statistics
 # 
 # Reference
@@ -107,7 +110,7 @@ confusionMatrix(predict.rf, teste$classes)  # Accuracy: 0.9245
 # Detection Prevalence                     0.2391
 # Balanced Accuracy                        0.9536
 
-confusionMatrix(predict.svm, teste$classes) # Accuracy: 0.9112
+confusionMatrix(predict.svm, test$classes) # Accuracy: 0.9112
 # Confusion Matrix and Statistics
 # 
 # Reference
@@ -151,7 +154,7 @@ confusionMatrix(predict.svm, teste$classes) # Accuracy: 0.9112
 # Detection Prevalence                     0.2259
 # Balanced Accuracy                        0.9297
 
-confusionMatrix(predict.rna, teste$classes) # Accuracy: 0.7874
+confusionMatrix(predict.rna, test$classes) # Accuracy: 0.7874
 # Confusion Matrix and Statistics
 # 
 # Reference
@@ -196,7 +199,7 @@ confusionMatrix(predict.rna, teste$classes) # Accuracy: 0.7874
 # Balanced Accuracy                        0.8428
 
 
-# Treinar o modelo final com todos os dados e fazer a predicaoo na base completa
+# Treinar o modelo final com todos os dados e fazer a predicao na base completa
 print(rf)
 # Random Forest 
 # 
@@ -209,10 +212,13 @@ print(rf)
 # Summary of sample sizes: 5151, 5151, 5151, 5151, 5151, 5151, ... 
 # Resampling results across tuning parameters:
 #   
-#   mtry    Accuracy    Kappa    
-#   2       0.9054192   0.8827752
-#   19      0.9054027   0.8828494
-#   36      0.8976296   0.8732268
+#   mtry  Accuracy   Kappa    
+# 2    0.9054192  0.8827752
+# 19    0.9054027  0.8828494
+# 36    0.8976296  0.8732268
+# 
+# Accuracy was used to select the optimal model using the largest value.
+# The final value used for the model was mtry = 2.
 
 final_model <- randomForest(classes~., data=dataset, mtry=2, importance=TRUE)
 
