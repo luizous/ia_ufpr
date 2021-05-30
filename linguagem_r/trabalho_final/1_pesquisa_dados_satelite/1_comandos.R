@@ -268,10 +268,15 @@ confusionMatrix(final_predict, dataset$classes)
 # Detection Prevalence                     0.2343
 # Balanced Accuracy                        1.0000
 
-## Salvar modelo final
+## Analise o resultado:
+# A partir das predições feitas é possível afirmar que o modelo RandomForest teve a 
+# maior acurácia (0.9245). E, observando o modelo final gerado, a matriz de confusão 
+# alcançou 1 de acurácia, o máximo de acurácia que é possível atingir.
+
+# Salvar modelo final:
 saveRDS(final_model, "rf_satellite_final_model.rds")
 
-## Salvar esse script
+# Salvar esse script:
 setwd("C:/Projects/ia_ufpr/linguagem_r/trabalho_final/1_pesquisa_dados_satelite")
 getwd()
 save(final_model, file="satellite_commands.RData")
