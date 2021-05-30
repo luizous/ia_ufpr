@@ -9,7 +9,7 @@ Uso da linguagem R e Aplicações em Inteligência Artificial.
 3. [Aula 3 - Estatística Básica, Gráficos, Regressão, Classificação e Salvando & Finalizando o Modelo](#aula3)
 
 ## Aula 1 - Operações, Vetores e Matrizes <a name="aula1"></a>
-[Aula 1 - Exercícios em arquivo .R](linguagem_r/linguagem_r_aula1.R)
+[Aula 1 - Exercícios em arquivo .R](/linguagem_r/aula_1/linguagem_r_aula1.R)
 ### Básico - Operações
 #### Exercício 1
 Rode o console do R e efetue as seguintes operações:
@@ -232,7 +232,7 @@ Estocolmo   3927  3188  1827         0
 ### Fatores e Fórmulas
 
 ## Aula 2 - Listas, DataFrames, Arquivos, Programação <a name="aula2"></a>
-[Aula 2 - Exercícios em arquivo .R](linguagem_r/linguagem_r_aula2.R)
+[Aula 2 - Exercícios em arquivo .R](/linguagem_r/aula_2/linguagem_r_aula2.R)
 ### Listas
 Exemplo
 ```r
@@ -473,6 +473,7 @@ Crie o seguinte data frame:
 [...]
   
 ## Aula 3 - Estatística Básica, Gráficos, Regressão, Classificação e Salvando & Finalizando o Modelo <a name="aula3"></a>
+[Aula 3 - Exercícios em arquivo .R](/linguagem_r/aula_3/linguagem_r_aula3.R)
 ### Gráficos
 #### Exercício 1
 Execute os exercícios apresentados nos slides.
