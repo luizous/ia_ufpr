@@ -4,4 +4,5 @@ Caderno de estudos da Pós em IA Aplicada.
 
 ### Disciplinas
 * [Linguagem R](linguagem_r/linguagem_r.md)
-* [Estatística Aplicada II](estatistica_aplicada_ii/estatistica_aplicada_ii.md)
+* [Estatística Aplicada II](estatistica_aplicada_ii/estatistica_aplicada_ii.md)]
+* [Arquitetura de Dados](arquitetura_de_dados/arquitetura_de_dados.md)
