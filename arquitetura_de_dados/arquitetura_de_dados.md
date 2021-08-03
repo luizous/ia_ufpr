@@ -1,7 +1,11 @@
 # Arquitetura de Dados
 ** Prof. Dieval Guizelini **
 
-Modelagem de dados estruturados e não-estruturados. Busca de dados. Armazenamento. Coleta, entendimento e preparação dos dados. Tratamento dos dados preparados com ferramentas de análise (estatísticas/computacionais) ou com a utilização de algoritmos em banco de dados.
+* Modelagem de dados estruturados e não-estruturados;
+* Busca de dados;
+* Armazenamento;
+* Coleta, entendimento e preparação dos dados;
+* Tratamento dos dados preparados com ferramentas de análise (estatísticas/computacionais) ou com a utilização de algoritmos em banco de dados.
 
 ## Conteúdo
 1. [Aula 1](#aula1)
