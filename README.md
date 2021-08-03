@@ -1,5 +1,5 @@
 # Especialização em Inteligência Artificial Aplicada
-## Universidade Federeal do Paraná (UFPR)
+### Universidade Federeal do Paraná (UFPR)
 Caderno de estudos da Pós em Inteligência Artificial Aplicada.
 
 ### Disciplinas
