@@ -1,4 +1,4 @@
-# Laboratório de IA
+# Aprendizado de Máquina
 **Prof. Dr. Jaime Wojciechowski**
 
 * Introdução ao aprendizado de máquina e reconhecimento de padrões;
