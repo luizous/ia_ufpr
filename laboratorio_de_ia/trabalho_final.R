@@ -88,3 +88,17 @@ cluster.results
 
 resultado_banco <- cbind(banco, cluster.results$cluster) 
 resultado_banco
+
+### ----------------------------------------------------------------------------
+### 4. Regras de Associação
+###
+
+#### -------------------------------
+#### 4.1 Lista de Compras
+####
+
+#### -------------------------------
+#### 4.2 Musculação
+####
+
+  
