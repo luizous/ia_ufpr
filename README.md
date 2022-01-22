@@ -11,3 +11,4 @@ Caderno de estudos da Pós em Inteligência Artificial Aplicada.
 * [Arquitetura de Dados](arquitetura_de_dados/arquitetura_de_dados.md)
 * [Laboratório de IA](laboratorio_de_ia/laboratorio_de_ia.md)
 * [Aprendizado de Máquina](aprendizado_de_maquina/aprendizado_de_maquina.md)
+* [Visão Computacional](visao_computacional/visao_computacional.md)
