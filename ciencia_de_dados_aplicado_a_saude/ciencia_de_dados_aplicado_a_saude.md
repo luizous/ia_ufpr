@@ -1,2 +1,1 @@
 Documentação mapa interativo no Shiny: https://rviews.rstudio.com/2019/10/09/building-interactive-world-maps-in-shiny/
-.
